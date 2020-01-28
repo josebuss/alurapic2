@@ -4,8 +4,14 @@ import { PhotoListComponent } from './photos/photo-list/photo-list.component';
 import { PhotoFormComponent } from './photos/photo-form/photo-form.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { PhotoListResoulver } from './photos/photo-list/photo-list.resolver';
+import { SingInComponent } from './home/sing-in/sing-in.component';
 
 const routes: Routes = [
+
+    {
+        path: '',
+        component: SingInComponent
+    },
     {
         path: 'user/:userName',
         component: PhotoListComponent,

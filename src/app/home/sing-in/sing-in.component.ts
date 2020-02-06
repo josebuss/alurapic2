@@ -26,6 +26,7 @@ export class SingInComponent implements OnInit {
       userName: ['', Validators.required],
       password: ['', Validators.required]
     });
+    this.platformService.isPlatformBrowser() && this.userNameInput.nativeElement.focus();
   }
 
   login() {

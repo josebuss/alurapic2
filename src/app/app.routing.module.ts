@@ -7,17 +7,24 @@ import { PhotoListResoulver } from './photos/photo-list/photo-list.resolver';
 import { SingInComponent } from './home/sing-in/sing-in.component';
 import { AuthGuard } from './core/auth/auth.guard';
 import { SignupComponent } from './home/signup/signup.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
 
     {
         path: '',
-        component: SingInComponent,
-        canActivate: [AuthGuard]
-    },
-    {
-        path: 'singup',
-        component: SignupComponent,
+        component: HomeComponent,
+        canActivate: [AuthGuard],
+        children: [
+            {
+                path: '',
+                component: SingInComponent
+            },
+            {
+                path: 'signup',
+                component: SignupComponent,
+            }
+        ]
     },
     {
         path: 'user/:userName',
@@ -38,7 +45,10 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(
+            routes
+            //, { useHash: true } //para utilizar nas url o '#'
+        )
     ],
     exports: [
         RouterModule

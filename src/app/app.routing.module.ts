@@ -6,6 +6,7 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { PhotoListResoulver } from './photos/photo-list/photo-list.resolver';
 import { SingInComponent } from './home/sing-in/sing-in.component';
 import { AuthGuard } from './core/auth/auth.guard';
+import { SignupComponent } from './home/signup/signup.component';
 
 const routes: Routes = [
 
@@ -13,6 +14,10 @@ const routes: Routes = [
         path: '',
         component: SingInComponent,
         canActivate: [AuthGuard]
+    },
+    {
+        path: 'singup',
+        component: SignupComponent,
     },
     {
         path: 'user/:userName',
